@@ -78,7 +78,6 @@ foldersRouter
   .patch(jsonParser, (req, res, next) => {
 
       const folderToUpdate = { name }
-        // is this necessary? 
       const numberOfValues = Object.values(folderToUpdate).filter(Boolean).length
       if (numberOfValues === 0)
         return res.status(400).json({

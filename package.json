@@ -1,6 +1,10 @@
 {
   "name": "express-boilerplate",
   "version": "1.0.0",
+  "engines": {
+    "node": "11.5.0",
+    "npm": "6.9.2"
+   },
   "description": "",
   "main": "index.js",
   "scripts": {

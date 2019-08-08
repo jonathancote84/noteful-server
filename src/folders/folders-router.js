@@ -33,7 +33,7 @@ foldersRouter
       newFolder.name = name;
 
       FoldersService.insertFolder(
-        req.app.get(db),
+        req.app.get('db'),
         newFolder
       )
         .then(folder => {

@@ -5,7 +5,7 @@ const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
 const foldersRouter = require('./folders/folders-router')
-const notesRouter = require('./notes/note-router.js')
+const notesRouter = require('./notes/note-router')
 
 const app = express()
 
@@ -17,9 +17,10 @@ app.get('/', (req, res) => {
     res.send('Hello, world!')
 })
 
-app.use('/api/folders', foldersRouter)
+    app.use('/api/folders', foldersRouter)
 
-app.use('/api/notes', notesRouter)
+    app.use('/api/notes', notesRouter)
+
 
 
 app.use(function errorHandler(error, req, res, next) {
@@ -30,7 +31,7 @@ app.use(function errorHandler(error, req, res, next) {
         console.error(error)
         response = { message: error.message, error }
     }
-    res.status(500).json(response)
+    console.log(error)
 })
 
 module.exports = app

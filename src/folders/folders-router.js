@@ -66,7 +66,7 @@ foldersRouter
       res.json(serializeFolder(res.folder))
   })
   .delete((req, res, next) => {
-      FoldersService.deleteFolders(
+      FoldersService.deleteFolder(
         req.app.get('db'),
         req.params.user_id
       )

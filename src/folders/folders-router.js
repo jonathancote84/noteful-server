@@ -76,8 +76,8 @@ foldersRouter
         .catch(next)
   })
   .patch(jsonParser, (req, res, next) => {
-
-      const folderToUpdate = { name }
+      const name = req.body
+      const folderToUpdate = name
       const numberOfValues = Object.values(folderToUpdate).filter(Boolean).length
       if (numberOfValues === 0)
         return res.status(400).json({

@@ -68,7 +68,7 @@ foldersRouter
   .delete((req, res, next) => {
       FoldersService.deleteFolder(
         req.app.get('db'),
-        req.params.user_id
+        req.params.folders_id
       )
         .then(numRowsAffected => {
             res.status(204).end()

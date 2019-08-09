@@ -35,7 +35,7 @@ NotesRouter
         })
     newNote.modified = modified;
 
-    NotesServices.insertNote(
+    NotesService.insertNote(
         req.app.get('db'),
         newNote
     )

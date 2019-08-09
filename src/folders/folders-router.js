@@ -21,6 +21,7 @@ foldersRouter
         })
         .catch(next)
   })
+  // there is a slight issue with this keeping deleted id's and returning 503 
   .post(jsonParser, (req, res, next) => {
       const name = req.body
       const newFolder = name 
@@ -39,7 +40,9 @@ foldersRouter
         .then(folder => {
             res
               .status(201)
+              // TODO make sure it posts to last folder id
               .location(path.posix.join(req.originalUrl, `/${folder.id}`))
+              .json(serializeFolder)
         })
         .catch(next)          
   })

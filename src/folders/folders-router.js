@@ -38,11 +38,14 @@ foldersRouter
         newFolder
       )
         .then(folder => {
+          // console.log(folder)
             res
               .status(201)
               // TODO make sure it posts to last folder id
               .location(path.posix.join(req.originalUrl, `/${folder.id}`))
-              .json(serializeFolder)
+              // I needed to send back the response to the function serializeFolder 
+              // .json({folder: serializeFolder(folder)})
+              .json(serializeFolder(folder))
         })
         .catch(next)          
   })
